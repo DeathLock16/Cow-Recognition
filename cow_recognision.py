@@ -80,6 +80,7 @@ num_classes = len(label_to_index)
 
 model = create_model(input_shape, num_classes)
 
+# Data Augmentation
 datagen = ImageDataGenerator(rotation_range=20,
                              width_shift_range=0.2,
                              height_shift_range=0.2,
@@ -97,10 +98,28 @@ history = model.fit(datagen.flow(X_train, y_train, batch_size=32),
                     verbose=1,
                     callbacks=[early_stopping])
 
+plt.plot(history.history['accuracy'], label='train_accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
+plt.legend()
+plt.show()
+
 # 5. Evaluate the model
 print("Evaluating the model...")
+
 y_pred = np.argmax(model.predict(X_test), axis=1)
-print(classification_report(y_test, y_pred, target_names=[index_to_label[i] for i in range(num_classes)]))
+
+unique_classes_y_test = np.unique(y_test)
+unique_classes_y_pred = np.unique(y_pred)
+
+target_names = [index_to_label[i] for i in unique_classes_y_test]
+
+if len(unique_classes_y_test) != len(unique_classes_y_pred):
+    print(f"Warning: Number of unique classes in y_test ({len(unique_classes_y_test)}) does not match y_pred ({len(unique_classes_y_pred)})")
+
+labels = unique_classes_y_test
+
+print(classification_report(y_test, y_pred, target_names=target_names, labels=labels))
+
 
 # 6. Save the model
 model.save("cow_recognition_model.keras")
@@ -118,9 +137,11 @@ def predict_cow(image_path, model, index_to_label, image_size=(128, 128)):
 
 # Example usage
 # Load the saved model
-model = tf.keras.models.load_model("cow_recognition_model.h5")
+model = tf.keras.models.load_model("cow_recognition_model.keras")
 
 # Predict a new cow image
-new_image_path = "probes/a.jpg"
-predicted_cow = predict_cow(new_image_path, model, index_to_label)
-print(f"Predicted cow: {predicted_cow}")
+probes = ["probes/a.jpg", "probes/b.jpg", "probes/c.jpg"]
+predicted_cow = [predict_cow(probes[0], model, index_to_label), predict_cow(probes[1], model, index_to_label), predict_cow(probes[2], model, index_to_label)]
+print(f"Predicted cow A: {predicted_cow[0]}")
+print(f"Predicted cow B: {predicted_cow[1]}")
+print(f"Predicted cow C: {predicted_cow[2]}")
