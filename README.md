@@ -3,14 +3,14 @@
 
 ## Polish Version
 ### Wprowadzenie
-Celem projektu jest rozwiązanie rzeczywistego problemu: rozpoznawanie krów na podstawie ich zdjęć. Zastosowanie tego projektu jest szczególnie przydatne w zarządzaniu dużymi gospodarstwami bydła, gdzie trzeba skutecznie identyfikować i śledzić różne rasy krów. Projekt koncentruje się na opracowaniu modelu uczenia maszynowego w Pythonie, który będzie w stanie dokładnie rozpoznawać różne rasy krów na zdjęciach.
+Celem projektu jest rozwiązanie rzeczywistego problemu: rozpoznawanie krów na podstawie ich zdjęć. Zastosowanie tego projektu jest szczególnie przydatne w zarządzaniu dużymi gospodarstwami bydła, gdzie trzeba skutecznie identyfikować i śledzić pojedyncze sztuki bydła. Projekt koncentruje się na opracowaniu modelu uczenia maszynowego w Pythonie, który będzie w stanie dokładnie rozpoznawać krowy w gospodarstwie na podstawie ich zdjęć uchwyconych poprzez kamery znajdujące się w gospodarstwie.
 
 ### Motywacja
-Dokładne identyfikowanie ras krów jest kluczowe dla zarządzania gospodarstwem, programów hodowlanych oraz zapewnienia zdrowia bydła. Technologia ta może zautomatyzować proces identyfikacji krów, zmniejszając czas i wysiłek rolników oraz poprawiając ogólne zarządzanie stadem.
+Dokładne identyfikowanie ras krów jest kluczowe dla zarządzania gospodarstwem, programów hodowlanych oraz zapewnienia zdrowia bydła. Technologia ta może zautomatyzować proces identyfikacji krów, zmniejszając czas i wysiłek rolników oraz poprawiając ogólne zarządzanie stadem. Zastępuje ona znakowanie (chipowanie) bądź samodzielne zliczanie bydła.
 
 ### Cele
-- **Cel:** Opracowanie modelu uczenia maszynowego do rozpoznawania różnych ras krów na podstawie zdjęć.
-- **Motywacja:** Zwiększenie efektywności zarządzania gospodarstwem i dokładności w identyfikacji ras krów.
+- **Cel:** Opracowanie modelu uczenia maszynowego do rozpoznawania różnych ras krów występujących w gospodarstwie na podstawie ich zdjęć - biorąc pod uwagę ich umaszczenia.
+- **Motywacja:** Zwiększenie efektywności zarządzania gospodarstwem i dokładności w identyfikacji ras krów. Zastąpienie znakowania (chipowania) bądź samodzielnego zliczanie bydła. Śledzenie położenia danego osobnika (np.: poprzez informacje czy jest w budynku oraz w jakim miejscu tego budynku się znajduje).
 - **Dane wejściowe:** Zdjęcia krów, wstępnie przetworzone do standardowych rozmiarów w celu trenowania modelu i dokonywania predykcji.
 
 ### Dziedzina sztucznej inteligencji
