@@ -147,8 +147,9 @@ def predict_cow(image_path, model, index_to_label, image_size=(128, 128)):
 model = tf.keras.models.load_model("cow_recognition_model.keras")
 
 # Predict a new cow image
-probes = ["probes/a.jpg", "probes/b.jpg", "probes/c.jpg"]
-predicted_cow = [predict_cow(probes[0], model, index_to_label), predict_cow(probes[1], model, index_to_label), predict_cow(probes[2], model, index_to_label)]
+probes = ["probes/a.jpg", "probes/b.jpg", "probes/c.jpg", "probes/d.jpg"]
+predicted_cow = [predict_cow(probes[0], model, index_to_label), predict_cow(probes[1], model, index_to_label), predict_cow(probes[2], model, index_to_label), predict_cow(probes[3], model, index_to_label)]
 print(f"Predicted cow A: {predicted_cow[0]}")
 print(f"Predicted cow B: {predicted_cow[1]}")
 print(f"Predicted cow C: {predicted_cow[2]}")
+print(f"Predicted cow D: {predicted_cow[3]}")
