@@ -1,3 +1,4 @@
+#coding=Windows-1250
 import os
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 abspath = os.path.abspath(__file__)
@@ -98,9 +99,15 @@ history = model.fit(datagen.flow(X_train, y_train, batch_size=32),
                     verbose=1,
                     callbacks=[early_stopping])
 
-plt.plot(history.history['accuracy'], label='train_accuracy')
-plt.plot(history.history['val_accuracy'], label='val_accuracy')
-plt.legend()
+plt.figure(figsize=(10, 6))
+plt.plot(history.history['accuracy'], label='Dok³adnoœæ - Zbiór treningowy', color='blue', linestyle='--')
+plt.plot(history.history['val_accuracy'], label='Dok³adnoœæ - Zbiór walidacyjny', color='green', linestyle='-')
+plt.title('Porównanie dok³adnoœci modelu podczas treningu i walidacji', fontsize=14)
+plt.xlabel('Epoki', fontsize=12)
+plt.ylabel('Dok³adnoœæ (%)', fontsize=12)
+plt.legend(loc='lower right', fontsize=10)
+plt.grid(visible=True, linestyle='--', linewidth=0.5)
+plt.tight_layout()
 plt.show()
 
 # 5. Evaluate the model
