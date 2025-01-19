@@ -30,7 +30,7 @@ Zbiór danych składa się z oznaczonych zdjęć różnych ras krów. Każde zdj
 
 **5. Zapis modelu:** Wytrenowany model
 
-**6. Przewidywanie nowych obrazów:** Model służy do przewidywania rasy krów na nowych obrazach.
+**6. Przewidywanie nowych obrazów:** Model służy do przewidywania pojedynczych krów na nowych obrazach.
 
 ## English Version
 ### Introduction
